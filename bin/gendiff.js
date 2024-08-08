@@ -4,18 +4,18 @@ import { program } from 'commander';
 import { showDiff } from '../src/genDiff.js';
 
 const gendiff = () => {
-    program
+  program
     .name('gendiff')
     .description('Compares two configuration files and shows a difference.')
-    .version('0.0.1')
+    .version('0.0.1');
 
-    program  
+  program
     .argument('<filepath1>', 'First file address')
     .argument('<filepath2>', 'Second file address')
     .option('-f ,--format <type>', 'output format')
-    .action(showDiff)
+    .action(showDiff);
 
-    program.parse(process.argv);
-}
+  program.parse(process.argv);
+};
 
-gendiff()
+gendiff();
