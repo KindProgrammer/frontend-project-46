@@ -7,6 +7,10 @@ const foundDiff = (obj1, obj2) => {
     const obj2Keys = Object.keys(obj2)
   
     const ollUniqueKeys = [...new Set([...obj1Keys, ...obj2Keys])].sort();
+
+    if (ollUniqueKeys.length === 0) {
+      return "{}";
+    }
   
     ollUniqueKeys.forEach((key) => {
       if (Object.hasOwn(obj1, key) && Object.hasOwn(obj2, key)) {
@@ -36,4 +40,4 @@ const showDiff = (firstObj, secondObj) => {
      console.log(foundDiff(objectForComparison1, objectForComparison2))
 }
 
-export { showDiff }
+export { showDiff, foundDiff }
