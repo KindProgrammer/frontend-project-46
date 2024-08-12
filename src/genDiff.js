@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { parseFile } from './parser.js';
+import parseFile from './parser.js';
 
 const foundDiff = (obj1, obj2) => {
   let result = '{';
