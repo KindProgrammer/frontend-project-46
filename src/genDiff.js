@@ -1,7 +1,9 @@
 import _ from 'lodash';
 import parseFile from './parser.js';
 
-const foundDiff = (obj1, obj2) => {
+const foundDiff = (firstObjPath, secondObjPath) => {
+  const obj1 = parseFile(firstObjPath);
+  const obj2 = parseFile(secondObjPath);
   let result = '{';
   const obj1Keys = Object.keys(obj1);
   const obj2Keys = Object.keys(obj2);
@@ -31,11 +33,8 @@ const foundDiff = (obj1, obj2) => {
   return result;
 };
 
-const showDiff = (firstObj, secondObj) => {
-  const objectForComparison1 = parseFile(firstObj);
-  const objectForComparison2 = parseFile(secondObj);
-
-  console.log(foundDiff(objectForComparison1, objectForComparison2));
+const showDiff = (firstObjPath, secondObjPath) => {
+  console.log(foundDiff(firstObjPath, secondObjPath));
 };
 
-export { showDiff, foundDiff };
+export { foundDiff, showDiff };
