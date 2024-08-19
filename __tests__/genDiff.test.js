@@ -1,4 +1,5 @@
-import path, { dirname } from 'path';
+import path from 'path';
+import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import expectedStringFromJsons from '../__fixtures__/expected.js';
 import { foundDiff } from '../src/genDiff.js';
