@@ -1,9 +1,7 @@
-import { foundDiff } from '../src/genDiff.js';
-import expectedStringFromJsons from '../__fixtures__/expected.js'
-
-import path from 'path';
+import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import expectedStringFromJsons from '../__fixtures__/expected.js';
+import { foundDiff } from '../src/genDiff.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
