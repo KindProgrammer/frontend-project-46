@@ -15,11 +15,12 @@
   "license": "ISC",
   "dependencies": {
     "commander": "12.1.0",
-    "lodash": "4.17.21"
+    "lodash": "4.17.21",
+    "yaml": "^2.5.0"
   },
   "jest": {
-    "testPathIgnorePatterns" : [
-      "./__tests__/utils/" 
+    "testPathIgnorePatterns": [
+      "./__tests__/utils/"
     ]
   },
   "devDependencies": {

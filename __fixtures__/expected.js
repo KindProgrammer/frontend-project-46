@@ -7,11 +7,11 @@ const expectedStringFromJsons = `{
   + verbose: true
 }`;
 
-const expectedParsJsonObj = {
+const expectedParsObj = {
   host: 'hexlet.io',
   timeout: 50,
   proxy: '123.234.53.22',
   follow: false,
 };
 
-export { expectedStringFromJsons, expectedParsJsonObj };
+export { expectedStringFromJsons, expectedParsObj };
