@@ -1,5 +1,5 @@
 import { expectedParsObj } from '../__fixtures__/expected.js';
-import parsFile from '../src/parser.js';
+import parsFile from '../src/parsers.js';
 import getFixturePath from './utils/utils.js';
 
 test('Parser', () => {

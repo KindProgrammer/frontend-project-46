@@ -1,6 +1,6 @@
 import { expectedStringFromJsons } from '../__fixtures__/expected.js';
 import { foundDiff } from '../src/genDiff.js';
-import parsFile from '../src/parser.js';
+import parsFile from '../src/parsers.js';
 import getFixturePath from './utils/utils.js';
 
 test('foundDiff', () => {
