@@ -1,4 +1,4 @@
-import { expectedStringFromJsons } from '../__fixtures__/expected.js';
+import { expectedCompareObj } from '../__fixtures__/expected.js';
 import { foundDiff } from '../src/genDiff.js';
 import parsFile from '../src/parsers.js';
 import getFixturePath from './utils/utils.js';
@@ -17,8 +17,8 @@ test('foundDiff', () => {
   const ymlFile1 = parsFile(ymlFilePath1);
   const ymlFile2 = parsFile(ymlFilePath2);
 
-  expect(foundDiff({}, {})).toEqual('{}');
-  expect(foundDiff(jsonFile1, jsonFile2)).toEqual(expectedStringFromJsons);
-  expect(foundDiff(yamlFile1, yamlFile2)).toEqual(expectedStringFromJsons);
-  expect(foundDiff(ymlFile1, ymlFile2)).toEqual(expectedStringFromJsons);
+  expect(foundDiff({}, {})).toEqual({});
+  expect(foundDiff(jsonFile1, jsonFile2)).toEqual(expectedCompareObj);
+  expect(foundDiff(yamlFile1, yamlFile2)).toEqual(expectedCompareObj);
+  expect(foundDiff(ymlFile1, ymlFile2)).toEqual(expectedCompareObj);
 });
