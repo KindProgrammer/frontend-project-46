@@ -1,41 +1,66 @@
 import _ from 'lodash';
 import parseFile from './parsers.js';
+import getStylish from './formatters/stylish.js';
 
-const foundDiff = (obj1, obj2) => {
-  let result = '{';
+const getUniqueSortedKeys = (obj1, obj2) => {
   const obj1Keys = Object.keys(obj1);
   const obj2Keys = Object.keys(obj2);
 
   const ollUniqueKeys = [...new Set([...obj1Keys, ...obj2Keys])].sort();
 
+  return ollUniqueKeys;
+};
+
+const foundDiff = (obj1, obj2) => {
+  const ollUniqueKeys = getUniqueSortedKeys(obj1, obj2);
+
   if (ollUniqueKeys.length === 0) {
-    return '{}';
+    return {};
   }
 
-  ollUniqueKeys.forEach((key) => {
-    if (Object.hasOwn(obj1, key) && Object.hasOwn(obj2, key)) {
-      if (_.isEqual(obj1[key], obj2[key])) {
-        result = `${result}\n    ${key}: ${obj1[key]}`;
-      } else {
-        result = `${result}\n  - ${key}: ${obj1[key]}\n  + ${key}: ${obj2[key]}`;
-      }
-    } else if (Object.hasOwn(obj1, key)) {
-      result = `${result}\n  - ${key}: ${obj1[key]}`;
-    } else {
-      result = `${result}\n  + ${key}: ${obj2[key]}`;
-    }
-  });
+  const result = ollUniqueKeys.map((key) => {
+    const value1 = obj1[key];
+    const value2 = obj2[key];
 
-  result = `${result}\n}`;
+    if (Object.hasOwn(obj1, key) && !Object.hasOwn(obj2, key)) {
+      return { key, value1, status: 'deleted' };
+    }
+
+    if (!Object.hasOwn(obj1, key) && Object.hasOwn(obj2, key)) {
+      return { key, value2, status: 'added' };
+    }
+
+    if (_.isObject(value1) && _.isObject(value2)) {
+      return { key, children: foundDiff(value1, value2), status: 'nested' };
+    }
+
+    if (_.isEqual(value1, value2)) {
+      return { key, value1, status: 'unchanged' };
+    }
+
+    return {
+      key, value1, value2, status: 'changed',
+    };
+  });
 
   return result;
 };
 
-const showDiff = (firstObjPath, secondObjPath) => {
+const showDiff = (firstObjPath, secondObjPath, options) => {
   const obj1 = parseFile(firstObjPath);
   const obj2 = parseFile(secondObjPath);
+  const { format } = options;
+  const difference = foundDiff(obj1, obj2);
 
-  console.log(foundDiff(obj1, obj2));
+  let ansver;
+
+  if (Object.keys(difference).length === 0) {
+    ansver = '{}';
+  } else if (format === 'stylish') {
+    ansver = getStylish(difference);
+  }
+
+  console.log(ansver);
 };
 
 export { foundDiff, showDiff };

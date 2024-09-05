@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { program } from 'commander';
-import { showDiff } from '../src/genDiff.js';
+import showDiff from '../index.js';
 
 const gendiff = () => {
   program
@@ -12,7 +12,7 @@ const gendiff = () => {
   program
     .argument('<filepath1>', 'First file address')
     .argument('<filepath2>', 'Second file address')
-    .option('-f ,--format <type>', 'output format')
+    .option('-f ,--format <type>', 'output format', 'stylish')
     .action(showDiff);
 
   program.parse(process.argv);
