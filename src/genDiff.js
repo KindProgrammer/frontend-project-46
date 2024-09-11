@@ -59,14 +59,14 @@ const showDiff = (firstObjPath, secondObjPath, options) => {
   if (Object.keys(difference).length === 0) {
     ansver = '{}';
   } else {
-    switch(format) {
+    switch (format) {
       case 'plain':
         ansver = getPlain(difference);
-        break
-    
+        break;
+
       default:
         ansver = getStylish(difference);
-        break
+        break;
     }
   }
 
