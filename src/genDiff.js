@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import parseFile from './parsers.js';
 import getStylish from './formatters/stylish.js';
+import getPlain from './formatters/plain.js';
 
 const getUniqueSortedKeys = (obj1, obj2) => {
   const obj1Keys = Object.keys(obj1);
@@ -57,8 +58,16 @@ const showDiff = (firstObjPath, secondObjPath, options) => {
 
   if (Object.keys(difference).length === 0) {
     ansver = '{}';
-  } else if (format === 'stylish') {
-    ansver = getStylish(difference);
+  } else {
+    switch(format) {
+      case 'plain':
+        ansver = getPlain(difference);
+        break
+    
+      default:
+        ansver = getStylish(difference);
+        break
+    }
   }
 
   console.log(ansver);
