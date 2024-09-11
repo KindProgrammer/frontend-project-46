@@ -2,6 +2,7 @@ import _ from 'lodash';
 import parseFile from './parsers.js';
 import getStylish from './formatters/stylish.js';
 import getPlain from './formatters/plain.js';
+import getJson from './formatters/json.js';
 
 const getUniqueSortedKeys = (obj1, obj2) => {
   const obj1Keys = Object.keys(obj1);
@@ -62,6 +63,10 @@ const showDiff = (firstObjPath, secondObjPath, options) => {
     switch (format) {
       case 'plain':
         ansver = getPlain(difference);
+        break;
+
+      case 'json':
+        ansver = getJson(difference);
         break;
 
       default:

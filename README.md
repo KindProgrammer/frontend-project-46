@@ -22,3 +22,6 @@ There is an example of the work for nested data
 
 There is an example of the work with the plain format
 [![asciicast](https://asciinema.org/a/vMOLbR5CCmoI642eDPANlnnZs.svg)](https://asciinema.org/a/vMOLbR5CCmoI642eDPANlnnZs)
+
+There is an example of the work with the json format
+[![asciicast](https://asciinema.org/a/1WHYW92WLA76B7Clv62ZmvNuX.svg)](https://asciinema.org/a/1WHYW92WLA76B7Clv62ZmvNuX)
