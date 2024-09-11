@@ -17,5 +17,8 @@ Json files comparison
 Yml files comparison
 [![asciicast](https://asciinema.org/a/MchWkTTDOW17IvHNfS004Sv3u.svg)](https://asciinema.org/a/MchWkTTDOW17IvHNfS004Sv3u)
 
-There is an example of work for nested data
+There is an example of the work for nested data
 [![asciicast](https://asciinema.org/a/nJoKAspUPj62DFrVviipouIQ2.svg)](https://asciinema.org/a/nJoKAspUPj62DFrVviipouIQ2)
+
+There is an example of the work with the plain format
+[![asciicast](https://asciinema.org/a/vMOLbR5CCmoI642eDPANlnnZs.svg)](https://asciinema.org/a/vMOLbR5CCmoI642eDPANlnnZs)
