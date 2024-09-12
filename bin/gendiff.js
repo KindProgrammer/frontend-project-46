@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { program } from 'commander';
-import showDiff from '../index.js';
+import showDiff from '../src/index.js';
 
 const gendiff = () => {
   program
