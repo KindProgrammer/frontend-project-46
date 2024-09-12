@@ -1,11 +1,6 @@
-import fs from 'fs';
-import path from 'path';
 import yaml from 'yaml';
 
-export default (filePath) => {
-  const fileExtension = filePath.split('.').pop();
-  const dataForParse = fs.readFileSync(path.resolve(filePath), 'utf8');
-
+export default (dataForParse, fileExtension) => {
   let parsResult;
 
   switch (fileExtension) {
