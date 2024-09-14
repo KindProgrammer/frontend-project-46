@@ -14,7 +14,7 @@ const gendiff = () => {
     .argument('<filepath2>', 'Second file address')
     .option('-f ,--format <type>', 'output format', 'stylish')
     .action((firstObjPath, secondObjPath, options) => {
-      console.log(genDiff(firstObjPath, secondObjPath, options))
+      console.log(genDiff(firstObjPath, secondObjPath, options));
     });
 
   program.parse(process.argv);
