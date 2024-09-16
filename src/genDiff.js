@@ -4,7 +4,7 @@ const getUniqueSortedKeys = (obj1, obj2) => {
   const obj1Keys = Object.keys(obj1);
   const obj2Keys = Object.keys(obj2);
 
-  const ollUniqueKeys = [...new Set([...obj1Keys, ...obj2Keys])].sort();
+  const ollUniqueKeys = [...new Set([...obj1Keys, ...obj2Keys])].toSorted();
 
   return ollUniqueKeys;
 };

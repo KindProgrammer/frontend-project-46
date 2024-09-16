@@ -4,7 +4,7 @@ import parseData from './parsers.js';
 import foundDiff from './genDiff.js';
 import getFormatt from './formatters/index.js';
 
-const getfileExtension = (filePath) => filePath.split('.').pop();
+const getfileExtension = (filePath) => filePath.split('.').at(-1);
 const getDataForParse = (filePath) => fs.readFileSync(path.resolve(filePath), 'utf8');
 const dataParse = (dataForParse, ext) => parseData(dataForParse, ext);
 
