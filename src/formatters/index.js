@@ -3,19 +3,14 @@ import getPlain from './plain.js';
 import getJson from './json.js';
 
 export default (data, format) => {
-  let ansver;
   switch (format) {
     case 'plain':
-      ansver = getPlain(data);
-      break;
+      return getPlain(data);
 
     case 'json':
-      ansver = getJson(data);
-      break;
+      return getJson(data);
 
     default:
-      ansver = getStylish(data);
-      break;
+      return getStylish(data);
   }
-  return ansver;
 };
