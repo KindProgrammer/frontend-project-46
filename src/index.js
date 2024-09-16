@@ -16,7 +16,6 @@ const genDiff = (firstObjPath, secondObjPath, format) => {
   const secondObjExt = getfileExtension(secondObjPath);
   const secondObjData = getDataForParse(secondObjPath);
   const parseDataSecondObj = dataParse(secondObjData, secondObjExt);
-  
   const difference = foundDiff(parseDataFirstObj, parseDataSecondObj);
 
   let ansver;

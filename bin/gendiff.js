@@ -13,7 +13,7 @@ const gendiff = () => {
     .argument('<filepath1>', 'First file address')
     .argument('<filepath2>', 'Second file address')
     .option('-f ,--format <type>', 'output format', 'stylish')
-    .action((firstObjPath, secondObjPath, option=null) => {
+    .action((firstObjPath, secondObjPath, option = null) => {
       const format = option === null ? 'stylish' : option.format;
       console.log(genDiff(firstObjPath, secondObjPath, format));
     });
