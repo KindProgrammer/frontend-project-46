@@ -17,7 +17,13 @@ const genDiff = (firstObjPath, secondObjPath, options) => {
   const secondObjData = getDataForParse(secondObjPath);
   const parseDataSecondObj = dataParse(secondObjData, secondObjExt);
 
-  const { format } = options;
+  let format;
+  if (options === undefined) {
+    format = 'stylish';
+  } else {
+    format = options.format;
+  }
+
   const difference = foundDiff(parseDataFirstObj, parseDataSecondObj);
 
   let ansver;
