@@ -8,7 +8,7 @@ const getfileExtension = (filePath) => filePath.split('.').pop();
 const getDataForParse = (filePath) => fs.readFileSync(path.resolve(filePath), 'utf8');
 const dataParse = (dataForParse, ext) => parseData(dataForParse, ext);
 
-const genDiff = (firstObjPath, secondObjPath, options) => {
+const genDiff = (firstObjPath, secondObjPath, format) => {
   const firstObjExt = getfileExtension(firstObjPath);
   const firstObjData = getDataForParse(firstObjPath);
   const parseDataFirstObj = dataParse(firstObjData, firstObjExt);
@@ -16,14 +16,7 @@ const genDiff = (firstObjPath, secondObjPath, options) => {
   const secondObjExt = getfileExtension(secondObjPath);
   const secondObjData = getDataForParse(secondObjPath);
   const parseDataSecondObj = dataParse(secondObjData, secondObjExt);
-
-  let format;
-  if (options === undefined) {
-    format = 'stylish';
-  } else {
-    format = options.format;
-  }
-
+  
   const difference = foundDiff(parseDataFirstObj, parseDataSecondObj);
 
   let ansver;

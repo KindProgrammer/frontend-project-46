@@ -7,9 +7,9 @@ import {
 } from '../__fixtures__/expected.js';
 
 test('gendiff', () => {
-  const optionJson = { format: 'json' };
-  const optionPlain = { format: 'plain' };
-  const optionStylish = { format: 'stylish' };
+  const optionJson = 'json';
+  const optionPlain = 'plain';
+  const optionStylish = 'stylish';
   const jsonFilePath1 = getFixturePath('file1.json');
   const jsonFilePath2 = getFixturePath('file2.json');
   const yamlFilePath1 = getFixturePath('file1.yaml');
