@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import parseData from './parsers.js';
-import foundDiff from './genDiff.js';
+import foundDiff from './foundDiff.js';
 import getFormatt from './formatters/index.js';
 
 const getfileExtension = (filePath) => filePath.split('.').at(-1);

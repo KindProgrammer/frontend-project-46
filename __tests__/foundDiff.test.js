@@ -1,5 +1,5 @@
 import { expectedCompareObj } from '../__fixtures__/expected.js';
-import foundDiff from '../src/genDiff.js';
+import foundDiff from '../src/foundDiff.js';
 import parsFile from '../src/parsers.js';
 import { getPreparedData } from './utils/utils.js';
 
