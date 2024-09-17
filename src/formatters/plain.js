@@ -1,6 +1,8 @@
+import _ from 'lodash';
+
 const getValue = (value) => {
   if (typeof value === 'string') return `'${value}'`;
-  return (Object.prototype.toString.call(value) === '[object Object]') ? '[complex value]' : String(value);
+  return (_.isObject(value) === '[object Object]') ? '[complex value]' : String(value);
 };
 
 const getPlain = (tree) => {

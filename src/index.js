@@ -6,16 +6,15 @@ import getFormatt from './formatters/index.js';
 
 const getfileExtension = (filePath) => filePath.split('.').at(-1);
 const getDataForParse = (filePath) => fs.readFileSync(path.resolve(filePath), 'utf8');
-const dataParse = (dataForParse, ext) => parseData(dataForParse, ext);
 
 const genDiff = (firstObjPath, secondObjPath, format) => {
   const firstObjExt = getfileExtension(firstObjPath);
   const firstObjData = getDataForParse(firstObjPath);
-  const parseDataFirstObj = dataParse(firstObjData, firstObjExt);
+  const parseDataFirstObj = parseData(firstObjData, firstObjExt);
 
   const secondObjExt = getfileExtension(secondObjPath);
   const secondObjData = getDataForParse(secondObjPath);
-  const parseDataSecondObj = dataParse(secondObjData, secondObjExt);
+  const parseDataSecondObj = parseData(secondObjData, secondObjExt);
   const difference = foundDiff(parseDataFirstObj, parseDataSecondObj);
 
   const ansver = Object.keys(difference).length === 0 ? '{}' : getFormatt(difference, format);
